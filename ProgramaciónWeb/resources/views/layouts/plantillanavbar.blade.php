@@ -10,7 +10,7 @@
 
 <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-            <a class="navbar-brand" href="#">Servicios</a>
+            <a class="navbar-brand" href="{{route('rutainicio')}}">Inicio</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -18,18 +18,23 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Procesos </a>
+                        <a class="nav-link" href="{{route('rutaprocesos')}}">Procesos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Testimonios</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{route('rutaservicios')}}">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Registrarse</a>
+                        <a class="nav-link" href="{{route('rutalogin')}}">Login</a>
                     </li>
-                </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('rutaregistro')}}">Registrarse</a>
+                    </li>
+                    
+</ul>
+
                 <form class="d-flex ms-auto">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
                     <button class="btn btn-outline-dark bg-danger" type="submit">Buscar</button>
