@@ -6,6 +6,7 @@
 
 <section class="vh-100" style="background-color: #ffffed;">
   <div class="container py-5 h-100">
+
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
         <div class="card" style="border-radius: 1rem;">
@@ -27,13 +28,13 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Inicia sesión en tu cuenta</h5>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="email" name="email" class="form-control form-control-lg" required />
+                    <input type="email" id="email" name="txtemail" class="form-control form-control-lg" required>
                     <label class="form-label" for="email">Correo Electrónico</label>
                   </div>
 
                 
                   <div class="form-outline mb-4">
-                    <input type="password" id="password" name="password" class="form-control form-control-lg" required />
+                    <input type="password" id="password" name="txtpassword" class="form-control form-control-lg" required>
                     <label class="form-label" for="password">Contraseña</label>
                   </div>
 

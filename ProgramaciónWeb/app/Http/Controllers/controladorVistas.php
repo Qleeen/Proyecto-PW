@@ -24,4 +24,28 @@ class controladorVistas extends Controller
     public function procesos(){
         return view('procesos');
     }
+
+    public function testimonios(){
+        return view('testimonios');
+    }
+
+    public function reservaciones(){
+        return view('reservaciones');
+    }
+
+
+
+    // public function procesarClientes(validadorClientes $peticionValidada){
+
+
+
+    //     //redireccion con valores en session
+    //     $usuario= $peticionValidada->input('txtnombre');
+
+    //     session()->flash('exito','se guardo el usuario'.$usuario);
+    //     return to_route('rutaregistro');
+
+    // }
+
+
 }

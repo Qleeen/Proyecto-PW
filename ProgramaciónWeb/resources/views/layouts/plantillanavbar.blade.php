@@ -21,7 +21,7 @@
                         <a class="nav-link" href="{{route('rutaprocesos')}}">Procesos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Testimonios</a>
+                        <a class="nav-link" href="{{route('rutatestimonios')}}">Testimonios</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{{route('rutaservicios')}}">Servicios</a>
