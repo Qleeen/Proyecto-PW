@@ -26,19 +26,19 @@
 
                 <div class="col-md-6 mb-3">
                     <label for="fecha_salida" class="form-label">Fecha de Salida</label>
-                    <input type="txtdate" class="form-control" id="fecha_salida" required>
+                    <input type="date" class="form-control" id="fecha_salida" required>
                 </div>
 
                 <div class="col-md-6 mb-3">
                     <label for="fecha_regreso" class="form-label">Fecha de Regreso</label>
-                    <input type="txtdate" class="form-control" id="fecha_regreso" required>
+                    <input type="date" class="form-control" id="fecha_regreso" required>
                 </div>
             </div>
 
 
             <div class="mb-3">
                 <label for="pasajeros" class="form-label">Pasajeros</label>
-                <input type="txtnumber" class="form-control" id="pasajeros" min="1" value="1" required>
+                <input type="number" class="form-control" id="pasajeros" min="1" value="1" required>
             </div>
 
 
