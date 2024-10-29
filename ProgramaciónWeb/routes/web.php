@@ -14,6 +14,9 @@ Route::get ('/testimonios', [controladorVistas::class, 'testimonios'])->name('ru
 Route::post('/enviarCliente', [controladorVistas::class, 'procesarClientes'])->name('rutaEnviar');
 
 Route::get ('/reservaciones', [controladorVistas::class, 'reservaciones'])->name('rutareservaciones');
+Route::get ('/cuenta', [controladorVistas::class, 'cuenta'])->name('rutacuenta');
+Route::get ('/asientos', [controladorVistas::class, 'asientos'])->name('rutaasientos');
+
 
 // route::view('/login', 'login')->name('login');
 

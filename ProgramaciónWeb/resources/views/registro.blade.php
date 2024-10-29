@@ -58,7 +58,7 @@
 
                   
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="submit">Registrarse</button>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Registrarse</button>
                   </div>
 
                   

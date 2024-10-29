@@ -33,6 +33,15 @@ class controladorVistas extends Controller
         return view('reservaciones');
     }
 
+    public function cuenta(){
+        return view('cuenta');
+
+    }
+
+    public function asientos(){
+        return view('asientos');
+    }
+
 
 
     // public function procesarClientes(validadorClientes $peticionValidada){
