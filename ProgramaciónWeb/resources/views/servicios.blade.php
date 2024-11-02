@@ -24,7 +24,7 @@
             <div class="col-md-4">
                 <div class="card h-100 p-3">
                     <div class="card-body">
-                        <img src="{{ asset('imagenes/Servicios2.png') }}" alt="Icono 2" class="mb-3" style="width: 100px;">
+                        <img src="{{ asset('imagenes/Servicios2.png') }}" alt="Icono 2" class="mb-3" style="width: px;">
                         <h4 class="card-title" style= "color: #44749d;">Sencillo y eficiente.</h4>
                         <p class="card-text">Tan sencillo como registrarte y empezar a reservar tus próximas vacaciones de manera intuitiva y eficiente.</p>
                     </div>
