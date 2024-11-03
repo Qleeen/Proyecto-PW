@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\validadorLogin;
+use App\Http\Requests\validadorRegistro;
+use App\Http\Requests\validadorReserva;
+use App\Http\Requests\validadorHotel;
+
 use Illuminate\Http\Request;
 
 class controladorVistas extends Controller
@@ -42,6 +47,75 @@ class controladorVistas extends Controller
         return view('asientos');
     }
 
+    public function hotel(){
+        return view('hotel');
+    }
+    public function filtrohotel(){
+        return view('filtrohotel');
+    }
+    public function vuelos(){
+        return view('vuelos');
+    }
+    public function hospedaje(){
+        return view('hospedaje');
+    }
+    public function informacion(){
+        return view('informacion');
+    }
+
+
+
+
+
+
+
+    public function procesarLogin(validadorLogin $peticionValidada){
+
+
+
+        //redireccion con valores en session
+        $usuario= $peticionValidada->input('txtemail');
+
+        session()->flash('exito','Bienvenido' .$usuario);
+        return to_route('rutainicio');
+
+    }
+
+    public function procesarRegistro(validadorRegistro $peticionValidada){
+
+
+
+        //redireccion con valores en session
+        $usuario= $peticionValidada->input('txtnombre');
+
+        session()->flash('exito','Bienvenido' .$usuario);
+        return to_route('rutainicio');
+
+    }
+    
+    public function procesarReservacion(validadorReserva $peticionValidada){
+
+
+
+        //redireccion con valores en session
+        $usuario= $peticionValidada->input('txtorigen');
+
+        session()->flash('exito','Registro hacia' .$usuario, 'completado, buen viaje');
+        return to_route('rutahotel');
+
+    }
+
+    public function procesarHotel(validadorHotel $peticionValidada){
+
+
+
+        //redireccion con valores en session
+        $usuario= $peticionValidada->input('txtdestino');
+
+        session()->flash('exito','Registro hacia' .$usuario, 'completado, buen viaje');
+        return to_route('rutafiltrohotel');
+
+    }
 
 
     // public function procesarClientes(validadorClientes $peticionValidada){

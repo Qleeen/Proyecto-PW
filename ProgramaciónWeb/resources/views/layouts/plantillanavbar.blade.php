@@ -36,7 +36,6 @@
                 </li>
             </ul>
             
-            <!-- Colocamos la imagen a la izquierda seguida del formulario de búsqueda -->
             <ul class="navbar-nav d-flex">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rutacuenta') }}" title="Mi Cuenta">

@@ -14,18 +14,18 @@
                 <h5 class="sidebar-heading">Borrador</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            Resumen
+                        <a class="nav-link active" href="{{route('rutacuenta')}} ">
+                        <span style="color: #d4a024;">RESUMEN</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Vuelos <span class="badge bg-primary"></span>
+                        <a class="nav-link" href="{{route('rutavuelos')}}">
+                        <span style="color: #d4a024;">VUELOS</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Hospedaje <span class="badge bg-secondary"></span>
+                        <a class="nav-link" href="{{route('rutainicio')}}">
+                        <span style="color: #d4a024;">HOSPEDAJE</span>
                         </a>
                     </li>
                     
@@ -39,7 +39,7 @@
                 <h1 class="h2">Resumen</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Cerrar sesión</button>
+                    <a href="{{route('rutainicio')}}" class="btn btn-sm btn-outline-secondary">Cerrar sesión</a>
                     </div>
                 </div>
             </div>
@@ -77,14 +77,59 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <h5>Órdenes por mes</h5>
-                    <canvas id="ordersPerMonthChart"></canvas>
+                    <h5>Órdenes por mes:</h5>
+                    <!-- <canvas id="ordersPerMonthChart"></canvas> -->
                 </div>
                 <div class="col-md-6">
-                    <h5>Total de vuelos en el último año</h5>
-                    <canvas id="totalCustomersChart"></canvas>
+                    <h5>Total de vuelos en el último año:</h5>
+                    <!-- <canvas id="totalCustomersChart"></canvas> -->
                 </div>
             </div>
+
+            <div class="mt-5">
+                    <h3 class="text-secondary">Historial</h3>
+                    <div class="row">
+
+            <div class="carousel slide mt-4" >
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <img src="{{ asset('imagenes/cancun.jpg') }}" class="card-img-top" alt="Cancún" style="width: 100%; height: 200px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cancún, México</h5>
+                                        <p class="card-text"><strong>Fecha:</strong> Julio 2020</p>
+                                        <p class="card-text"><strong>Vuelo:</strong> A-102 AeroMéxico</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <img src="{{ asset('imagenes/japon.jpg') }}" class="card-img-top" alt="Tokio" style="width: 100%; height: 200px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tokio, Japón</h5>
+                                        <p class="card-text"><strong>Fecha:</strong> Marzo 2023</p>
+                                        <p class="card-text"><strong>Vuelo:</strong> M-302 - American Airlines</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <img src="{{ asset('imagenes/france.jpg') }}" class="card-img-top" alt="París" style="width: 100%; height: 200px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">París, Francia</h5>
+                                        <p class="card-text"><strong>Fecha:</strong> Diciembre 2022</p>
+                                        <p class="card-text"><strong>Vuelo:</strong> P-789 - Air France</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+            </div>
+
         </main>
     </div>
 </div>

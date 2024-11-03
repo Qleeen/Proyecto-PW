@@ -6,6 +6,9 @@
 
 <section class="vh-100 d-flex align-items-center" style="background-color: #ffffed;">
   <div class="container">
+    @if (session('exito'))
+    <x-Alert tipo="success"> {{ session('exito') }} </x-Alert>
+    @endif
     <div class="row d-flex justify-content-between align-items-center">
       <!-- Texto -->
       <div class="col-md-6">
@@ -16,7 +19,7 @@
         <!-- Botones -->
         <div class="mt-4">
           <a href="{{route('rutareservaciones')}}" class="btn btn-primary btn-lg me-3">Reserva ahora</a>
-          <a href="#" class="btn btn-outline-primary btn-lg">Más información</a>
+          <a href="{{route('rutainformacion')}}" class="btn btn-outline-primary btn-lg">Más información</a>
         </div>
       </div>
 

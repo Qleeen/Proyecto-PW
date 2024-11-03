@@ -20,40 +20,44 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form>
+                <form action="/enviarRegistro" method="POST">
                   @csrf 
 
          
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-user-plus fa-2x me-3" style="background: #e6b92c;"></i>
-                    <span class="h1 fw-bold mb-0">Registro</span>
+                    <span class="h1 fw-bold mb-0" style="color: #d4a024;">Registro</span>
                   </div>
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Crea tu cuenta</h5>
 
                 
                   <div class="form-outline mb-4">
-                    <input type="text" id="name" name="txtnombre" class="form-control form-control-lg" required />
+                    <input type="text" name="txtnombre" value="{{ old('txtnombre') }}" class="form-control form-control-lg" />
                     <label class="form-label" for="name">Nombre Completo</label>
+                    <small class="first-italic text-danger">{{ $errors->first('txtnombre') }}</small>
                   </div>
 
                   
                   
                   <div class="form-outline mb-4">
-                    <input type="email" id="email" name="txtemail" class="form-control form-control-lg" required />
+                    <input type="email"  name="txtemail" value="{{ old('txtemail') }}" class="form-control form-control-lg"  />
                     <label class="form-label" for="email">Correo Electrónico</label>
+                    <small class="first-italic text-danger">{{ $errors->first('txtemail') }}</small>
                   </div>
 
                 
                   <div class="form-outline mb-4">
-                    <input type="password" id="password" name="txtpassword" class="form-control form-control-lg" required />
+                    <input type="password"  name="txtpassword" value="{{ old('txtpassword') }}" class="form-control form-control-lg"  />
                     <label class="form-label" for="password">Contraseña</label>
+                    <small class="first-italic text-danger">{{ $errors->first('txtpassword') }}</small>
                   </div>
 
                   
                   <div class="form-outline mb-4">
-                    <input type="password" id="password_confirmation" name="txtpassword_confirmation" class="form-control form-control-lg" required />
+                    <input type="password"  name="txtpassword_confirmation" value="{{ old('txtpassword_confirmation') }}" class="form-control form-control-lg"  />
                     <label class="form-label" for="password_confirmation">Confirmar Contraseña</label>
+                    <small class="first-italic text-danger">{{ $errors->first('txtpassword_confirmation') }}</small>
                   </div>
 
                   
