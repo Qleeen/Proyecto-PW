@@ -24,7 +24,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('rutainicio')}}">
+                        <a class="nav-link" href="{{route('rutahospedaje')}}">
                         <span style="color: #d4a024;">HOSPEDAJE</span>
                         </a>
                     </li>

@@ -71,7 +71,7 @@
                                     <li class="list-group-item d-flex justify-content-between"><strong>Total a pagar:</strong> <span>$24,000 MXN</span></li>
                                 </ul>
                                 <div class="d-grid">
-                                <a href="{{ route('rutainicio') }}" class="btn btn-primary btn-lg" role="button">Pagar</a>
+                                <a href="{{ route('rutapago') }}" class="btn btn-primary btn-lg" role="button">Pagar</a>
 
                                 </div>
                             </div>

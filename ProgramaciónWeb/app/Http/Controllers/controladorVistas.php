@@ -6,6 +6,7 @@ use App\Http\Requests\validadorLogin;
 use App\Http\Requests\validadorRegistro;
 use App\Http\Requests\validadorReserva;
 use App\Http\Requests\validadorHotel;
+use App\Http\Requests\validadorPago;
 
 use Illuminate\Http\Request;
 
@@ -62,6 +63,9 @@ class controladorVistas extends Controller
     public function informacion(){
         return view('informacion');
     }
+    public function pago(){
+        return view('pago');
+    }
 
 
 
@@ -114,6 +118,18 @@ class controladorVistas extends Controller
 
         session()->flash('exito','Registro hacia' .$usuario, 'completado, buen viaje');
         return to_route('rutafiltrohotel');
+
+    }
+
+    public function procesarPago(validadorPago $peticionValidada){
+
+
+
+        //redireccion con valores en session
+        $usuario= $peticionValidada->input('txttarjeta');
+
+        session()->flash('exito','Cargo realizado a' .$usuario,);
+        return to_route('rutapago');
 
     }
 

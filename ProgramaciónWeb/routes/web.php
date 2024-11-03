@@ -22,12 +22,14 @@ Route::get ('/filtrohotel', [controladorVistas::class, 'filtrohotel'])->name('ru
 Route::get ('/vuelos', [controladorVistas::class, 'vuelos'])->name('rutavuelos');
 Route::get ('/hospedaje', [controladorVistas::class, 'hospedaje'])->name('rutahospedaje');
 Route::get ('/informacion', [controladorVistas::class, 'informacion'])->name('rutainformacion');
+Route::get ('/pago', [controladorVistas::class, 'pago'])->name('rutapago');
 
 
 Route::post('/enviarLogin', [controladorVistas::class, 'procesarLogin'])->name('rutaEnviarLogin');
 Route::post('/enviarRegistro', [controladorVistas::class, 'procesarRegistro'])->name('rutaEnviarRegistro');
 Route::post('/enviarReservacion', [controladorVistas::class, 'procesarReservacion'])->name('rutaEnviarReservacion');
 Route::post('/enviarHotel', [controladorVistas::class, 'procesarHotel'])->name('rutaEnviarHotel');
+Route::post('/enviarPago', [controladorVistas::class, 'procesarPago'])->name('rutaEnviarPago');
 
 
 
