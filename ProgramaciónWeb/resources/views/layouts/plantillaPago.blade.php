@@ -45,10 +45,7 @@
                 </li>
             </ul>
 
-            <form class="d-flex ms-2">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-dark bg-danger" type="submit">Buscar</button>
-            </form>
+
 
         </div>
     </nav>

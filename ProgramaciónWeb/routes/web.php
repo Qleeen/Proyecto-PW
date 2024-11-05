@@ -26,6 +26,9 @@ Route::get ('/pago', [controladorVistas::class, 'pago'])->name('rutapago');
 
 
 
+
+
+
 Route::post('/enviarLogin', [controladorVistas::class, 'procesarLogin'])->name('rutaEnviarLogin');
 Route::post('/enviarRegistro', [controladorVistas::class, 'procesarRegistro'])->name('rutaEnviarRegistro');
 Route::post('/enviarReservacion', [controladorVistas::class, 'procesarReservacion'])->name('rutaEnviarReservacion');

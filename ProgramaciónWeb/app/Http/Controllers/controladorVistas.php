@@ -67,6 +67,8 @@ class controladorVistas extends Controller
         return view('pago');
     }
 
+    
+
 
 
 
