@@ -19,9 +19,9 @@ class controladorVistas extends Controller
         return view('login');
     }
 
-    public function registro(){
-        return view('registro');
-    }
+    // public function registro(){
+    //     return view('registro');
+    // }
 
     public function servicios(){
         return view('servicios');

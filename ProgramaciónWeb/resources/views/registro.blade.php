@@ -6,9 +6,9 @@
 
 <section class="vh-100" style="background-color: #ffffed;">
   <div class="container py-5 h-100">
-
-
-
+    @if (session('exito'))
+    <x-Alert tipo="success"> {{ session('exito') }} </x-Alert>
+    @endif
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
         <div class="card" style="border-radius: 1rem;">
@@ -20,7 +20,7 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form action="/enviarRegistro" method="POST">
+                <form action="{{ route('enviaregistro') }}" method="POST">
                   @csrf 
 
          

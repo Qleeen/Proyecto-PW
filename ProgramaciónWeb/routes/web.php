@@ -1,13 +1,14 @@
 <?php
 
 use App\Http\Controllers\controladorVistas;
+use App\Http\Controllers\clienteController;
 use App\Http\Controllers\validadores;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get ('/', [controladorVistas::class, 'inicio'])->name('rutainicio');
 Route::get ('/login', [controladorVistas::class, 'login'])->name('rutalogin');
-Route::get ('/registro', [controladorVistas::class, 'registro'])->name('rutaregistro');
+// Route::get ('/registro', [controladorVistas::class, 'registro'])->name('rutaregistro');
 Route::get ('/servicios', [controladorVistas::class, 'servicios'])->name('rutaservicios');
 Route::get ('/procesos', [controladorVistas::class, 'procesos'])->name('rutaprocesos');
 Route::get ('/testimonios', [controladorVistas::class, 'testimonios'])->name('rutatestimonios');
@@ -25,6 +26,9 @@ Route::get ('/informacion', [controladorVistas::class, 'informacion'])->name('ru
 Route::get ('/pago', [controladorVistas::class, 'pago'])->name('rutapago');
 
 
+//ruta admin
+Route::get('/clientesConsulta', [clienteController::class, 'index'])->name('rutaclientes');
+
 
 
 
@@ -37,9 +41,12 @@ Route::post('/enviarPago', [controladorVistas::class, 'procesarPago'])->name('ru
 
 
 
+//controlador del cliente
+Route::get('/cliente/create', [clienteController::class, 'create'])->name('rutaregistro');
+Route::post('/cliente', [clienteController::class, 'store'])->name('enviaregistro');
 
-// route::view('/login', 'login')->name('login');
 
-// route::view('/registro', 'registro')->name('registro');
+//eliminar cliente
+Route::delete('/cliente/{id}', [clienteController::class, 'destroy'])->name('rutaEliminarCliente');
 
 
