@@ -40,6 +40,7 @@ class clienteController extends Controller
         DB::table('clientes')->insert([
             'nombre' => $request->input('txtnombre'),
             'correo' => $request->input('txtemail'),
+            'telefono' => $request->input('txttelefono'),
             'password' => $request->input('txtpassword'),
             'password_confirmation' => $request->input('txtpassword_confirmation'),
             'created_at' => Carbon::now(),
@@ -80,6 +81,7 @@ class clienteController extends Controller
         ->update([
             'nombre' => $request->input('txtnombre'),
             'correo' => $request->input('txtemail'),
+            'telefono' => $request->input('txttelefono'),
             'password' => $request->input('txtpassword'),
             'password_confirmation' => $request->input('txtpassword_confirmation'),
             'updated_at' => Carbon::now()

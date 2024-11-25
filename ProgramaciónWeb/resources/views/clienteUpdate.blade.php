@@ -27,6 +27,14 @@
             <small class="first-italic text-danger">{{ $errors->first('txtemail') }}</small>
 
           </div>
+          <div class="mb-3">
+            <label for="telefono" class="form-label">{{__('Correo: ')}}</label>
+            <input type="number" class="form-control" name="txttelefono" value="{{ $cliente->telefono }}" >
+            <small class="first-italic text-danger">{{ $errors->first('txttelefono') }}</small>
+
+          </div>
+
+
           <div class="form-outline mb-4">
             <label for="password" class="form-label" >Contraseña</label>
             <input type="password"  name="txtpassword" value="{{ $cliente->password }}" class="form-control form-control-lg"  />

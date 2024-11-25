@@ -46,6 +46,12 @@
                     <small class="first-italic text-danger">{{ $errors->first('txtemail') }}</small>
                   </div>
 
+                  <div class="form-outline mb-4">
+                    <input type="number" name="txttelefono" value="{{ old('txttelefono') }}" class="form-control form-control-lg" />
+                    <label class="form-label" for="name">Ingrese numero telfónico</label>
+                    <small class="first-italic text-danger">{{ $errors->first('txttelefono') }}</small>
+                  </div>
+
                 
                   <div class="form-outline mb-4">
                     <input type="password"  name="txtpassword" value="{{ old('txtpassword') }}" class="form-control form-control-lg"  />

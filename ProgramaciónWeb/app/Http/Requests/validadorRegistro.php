@@ -22,8 +22,9 @@ class validadorRegistro extends FormRequest
     public function rules(): array
     {
         return [
-            'txtnombre' => 'required|min:4||regex:/^[\pL\s]+$/u',
+            'txtnombre' => 'required|min:20||regex:/^[\pL\s]+$/u',
             'txtemail' => 'required|email:rfc,dns',
+            'txttelefono' => 'required|numeric|digits:10',
             'txtpassword' => 'required|min:8',
             'txtpassword_confirmation' => 'required|same:txtpassword',
         ];
