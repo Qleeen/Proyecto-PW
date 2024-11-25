@@ -1,6 +1,6 @@
 @extends('layouts.plantillanavbar')
 
-@section('titulo', 'Registro')
+@section('titulo', 'Actualizar Cliente')
 
 @section('contenido')
 
@@ -27,7 +27,7 @@
 
 
 
-        <a href="" type="submit" class="btn btn-success btn-sm">{{__('Actualizar')}}</a>
+        <a href="{{ route('rutaEditarCliente', ['id' =>$cliente->id])}}" type="submit" class="btn btn-success btn-sm">{{__('Actualizar')}}</a>
         
 
         <form action="{{route('rutaEliminarCliente', $cliente->id)}}" method="Post" style="display: inline-block;" onsubmit="return confirm('¿Seguro?');">          
@@ -46,4 +46,4 @@
 
 
   </div>
-@endsection
+  @endsection
