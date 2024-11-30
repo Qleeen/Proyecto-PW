@@ -17,7 +17,7 @@
           <a class="nav-link" href="{{ route('rutaclientes') }}">Clientes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('rutaclientes') }}">Hoteles</a>
+          <a class="nav-link" href="{{ route('rutahotelConsulta') }}">Hoteles</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('rutaclientes') }}">Vuelos</a>
@@ -55,7 +55,7 @@
 
 
 
-  
+
 </div>
 @endsection
 

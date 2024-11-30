@@ -15,12 +15,14 @@ class HotelTableSeeder extends Seeder
     {
         DB::table('hotel')->insert([
         
+            [
             'nombre' => 'Excaret',
             'pais' => 'Mexico',
             'estado' => 'Quintana Roo',
             'lugar' => 'Cancun',
             'precio' => 1000.00,
             'personas' => 2,
-        ]);
+            ]]
+        );
     }
 }

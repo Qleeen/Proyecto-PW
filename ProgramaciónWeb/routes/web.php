@@ -29,7 +29,7 @@ Route::get ('/pago', [controladorVistas::class, 'pago'])->name('rutapago');
 //ruta admin
 Route::get('/clientesConsulta', [clienteController::class, 'index'])->name('rutaclientes');
 
-
+Route::get('/hotelConsulta', [hotelController::class, 'index'])->name('rutahotelConsulta');
 
 
 
