@@ -43,6 +43,8 @@ Route::post('/enviarPago', [controladorVistas::class, 'procesarPago'])->name('ru
 
 //controlador del cliente
 Route::get('/cliente/create', [clienteController::class, 'create'])->name('rutaregistro');
+
+
 Route::post('/cliente', [clienteController::class, 'store'])->name('enviaregistro');
 
 //actualizar cliente
@@ -50,5 +52,6 @@ Route::get('/cliente/{id}/edit', [clienteController::class, 'edit'])->name('ruta
 Route::put('/cliente/{id}/update', [clienteController::class, 'update'])->name('rutaActualizarCliente');
 //eliminar cliente
 Route::delete('/cliente/{id}', [clienteController::class, 'destroy'])->name('rutaEliminarCliente');
+
 
 
