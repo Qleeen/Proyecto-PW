@@ -80,7 +80,7 @@
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-primary">Reservar Vuelo</button>
+                <button type="submit" class="btn btn-primary">Buscar Vuelo</button>
             </div>
         </form>
     </div>
