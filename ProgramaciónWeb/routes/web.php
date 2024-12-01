@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\controladorVistas;
 use App\Http\Controllers\clienteController;
+use App\Http\Controllers\hotelController;
 use App\Http\Controllers\validadores;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +29,8 @@ Route::get ('/pago', [controladorVistas::class, 'pago'])->name('rutapago');
 
 //ruta admin
 Route::get('/clientesConsulta', [clienteController::class, 'index'])->name('rutaclientes');
-
 Route::get('/hotelConsulta', [hotelController::class, 'index'])->name('rutahotelConsulta');
+
 
 
 
@@ -54,4 +55,11 @@ Route::put('/cliente/{id}/update', [clienteController::class, 'update'])->name('
 Route::delete('/cliente/{id}', [clienteController::class, 'destroy'])->name('rutaEliminarCliente');
 
 
+//hoteles
+
+Route::get('/hotel/create', [hotelController::class, 'create'])->name('rutaHotelRegistro');
+Route::delete('/hotel/{id}', [hotelController::class, 'destroy'])->name('rutaEliminarHotel');
+Route::get('/hotel/{id}/edit', [hotelController::class, 'edit'])->name('rutaEditarHotel');
+Route::put('/hotel/{id}/update', [hotelController::class, 'update'])->name('rutaActualizarHotel');
+Route::post('/hotel', [hotelController::class, 'store'])->name('enviarHotel');
 

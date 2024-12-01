@@ -16,7 +16,7 @@ class hotelController extends Controller
     public function index()
     {
         $ConsultarHotel = DB::table('hotel')->get();
-        return view('hotelesConsulta', compact('ConsultarHoteles'));
+        return view('hotelesConsulta', compact('ConsultarHotel'));
     }
 
     /**
@@ -24,7 +24,7 @@ class hotelController extends Controller
      */
     public function create()
     {
-        //
+        return view('registroHotel');
     }
 
     /**
@@ -32,7 +32,20 @@ class hotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table('hotel')->insert([
+            'nombre' => $request->input('txtnombre'),
+            'pais' => $request->input('txtpais'),
+            'estado' => $request->input('txtestado'),
+            'lugar' => $request->input('txtlugar'),
+            'precio' => $request->input('txtprecio'),
+            'personas' => $request->input('txtpersonas'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $usuario = $request->input('txtnombre');
+        session()->flash('exito', 'Se guardo el hotel' .$usuario);
+        return to_route('rutahotelConsulta');
     }
 
     /**
@@ -48,15 +61,29 @@ class hotelController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $hotel = DB::table('hotel')->where('id', $id)->first();
+        return view('hotelUpdate', compact('hotel'));
     }
-
+ 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::table('hotel')
+            ->where('id', $id)
+            ->update([
+                'nombre' => $request->input('txtnombre'),
+                'pais' => $request->input('txtpais'),
+                'estado' => $request->input('txtestado'),
+                'lugar' => $request->input('txtlugar'),
+                'precio' => $request->input('txtprecio'),
+                'personas' => $request->input('txtpersonas'),
+                'updated_at' => Carbon::now(),
+            ]);
+            $usuario = $request->input('txtnombre');
+            session()->flash('exito', 'Se actualizo el hotel' .$usuario);
+            return to_route('rutahotelConsulta');
     }
 
     /**
@@ -64,6 +91,8 @@ class hotelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('hotel')->where('id', $id)->delete();
+        session()->flash('exito','Se elimino el hotel' .$id);
+        return to_route('rutahotelConsulta');
     }
 }
