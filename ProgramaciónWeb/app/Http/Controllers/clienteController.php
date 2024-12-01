@@ -17,6 +17,15 @@ use App\Http\Requests\validadorRegistro;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Auth;
+//PDF
+use Barryvdh\DomPDF\Facade\Pdf;
+
+//Excel
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ClientesExport;
+
+
+
 
 class clienteController extends Controller
 {
@@ -111,6 +120,7 @@ class clienteController extends Controller
 
 
 
+//credenciales login 
 
     public function enviarLogin(Request $request)
     {
@@ -137,13 +147,29 @@ class clienteController extends Controller
     }
 
 
-
+//logout
 
     public function logout(Request $request)
     {
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('rutalogin')->with('success', 'Sesión cerrada exitosamente.');
+    }
+
+
+//PDFS
+    public function exportClientesPDF()
+    {
+    $clientes = DB::table('clientes')->get(); // Cambia a tu modelo si usas Eloquent
+
+    $pdf = Pdf::loadView('reportes.clientesPDF', compact('clientes'));
+    return $pdf->download('reporte_clientes.pdf');
+    }
+
+//Excels
+    public function exportClientesExcel()
+    {
+    return Excel::download(new ClientesExport, 'clientes.xlsx');
     }
 
 }

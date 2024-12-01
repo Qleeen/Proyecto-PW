@@ -26,6 +26,8 @@
     </div>
   </div>
 </nav>
+<a href="{{ route('clientes.pdf') }}" class="btn btn-danger">Exportar PDF</a>
+<a href="{{ route('clientes.excel') }}" class="btn btn-success">Exportar Excel</a>
 
 <div class="container mt-5 col-md-8">
   @if (session('exito'))

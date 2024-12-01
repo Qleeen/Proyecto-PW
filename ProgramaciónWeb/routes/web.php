@@ -5,6 +5,7 @@ use App\Http\Controllers\clienteController;
 use App\Http\Controllers\hotelController;
 use App\Http\Controllers\validadores;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReporteHotelController;
 
 
 Route::get ('/', [controladorVistas::class, 'inicio'])->name('rutainicio');
@@ -27,9 +28,7 @@ Route::get ('/informacion', [controladorVistas::class, 'informacion'])->name('ru
 Route::get ('/pago', [controladorVistas::class, 'pago'])->name('rutapago');
 
 
-//ruta admin
-Route::get('/clientesConsulta', [clienteController::class, 'index'])->name('rutaclientes');
-Route::get('/hotelConsulta', [hotelController::class, 'index'])->name('rutahotelConsulta');
+
 
 
 
@@ -42,6 +41,15 @@ Route::post('/enviarPago', [controladorVistas::class, 'procesarPago'])->name('ru
 
 //cerrar sesion
 Route::post('/logout', [clienteController::class, 'logout'])->name('logout');
+
+
+
+
+
+//ruta admin
+Route::get('/clientesConsulta', [clienteController::class, 'index'])->name('rutaclientes');
+Route::get('/hotelConsulta', [hotelController::class, 'index'])->name('rutahotelConsulta');
+
 
 //controlador del cliente
 Route::get('/cliente/create', [clienteController::class, 'create'])->name('rutaregistro');
@@ -65,5 +73,12 @@ Route::delete('/hotel/{id}', [hotelController::class, 'destroy'])->name('rutaEli
 Route::get('/hotel/{id}/edit', [hotelController::class, 'edit'])->name('rutaEditarHotel');
 Route::put('/hotel/{id}/update', [hotelController::class, 'update'])->name('rutaActualizarHotel');
 Route::post('/hotel', [hotelController::class, 'store'])->name('enviarHotel');
+
+//PDF y EXCEL
+
+Route::get('/reportes/clientes/pdf', [clienteController::class, 'exportClientesPDF'])->name('clientes.pdf');
+Route::get('/reportes/clientes/excel', [clienteController::class, 'exportClientesExcel'])->name('clientes.excel');
+Route::get('/hoteles/exportar-excel', [ReporteHotelController::class, 'exportarExcel'])->name('exportarHotelesExcel');
+Route::get('/hoteles/exportar-pdf', [ReporteHotelController::class, 'exportarPdf'])->name('exportarHotelesPdf');
 
 

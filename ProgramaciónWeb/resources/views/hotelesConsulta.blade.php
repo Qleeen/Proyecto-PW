@@ -27,6 +27,9 @@
 </nav>
 
 <a href="{{ route('rutaHotelRegistro') }}" class="btn btn-success">{{ __('Agregar Hotel') }}</a>
+<a href="{{ route('exportarHotelesExcel') }}" class="btn btn-success">Exportar a Excel</a>
+<a href="{{ route('exportarHotelesPdf') }}" class="btn btn-danger">Exportar a PDF</a>
+
 
 <div class="container mt-5 col-md-8">
   @if (session('exito'))
