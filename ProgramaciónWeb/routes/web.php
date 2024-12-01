@@ -3,6 +3,8 @@
 use App\Http\Controllers\controladorVistas;
 use App\Http\Controllers\clienteController;
 use App\Http\Controllers\hotelController;
+use App\Http\Controllers\vuelosController;
+use App\Http\Controllers\VueloController;
 use App\Http\Controllers\validadores;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReporteHotelController;
@@ -49,6 +51,7 @@ Route::post('/logout', [clienteController::class, 'logout'])->name('logout');
 //ruta admin
 Route::get('/clientesConsulta', [clienteController::class, 'index'])->name('rutaclientes');
 Route::get('/hotelConsulta', [hotelController::class, 'index'])->name('rutahotelConsulta');
+Route::get('/vuelosConsulta', [vuelosController::class, 'index'])->name('rutavuelosConsulta');
 
 
 //controlador del cliente
@@ -73,6 +76,18 @@ Route::delete('/hotel/{id}', [hotelController::class, 'destroy'])->name('rutaEli
 Route::get('/hotel/{id}/edit', [hotelController::class, 'edit'])->name('rutaEditarHotel');
 Route::put('/hotel/{id}/update', [hotelController::class, 'update'])->name('rutaActualizarHotel');
 Route::post('/hotel', [hotelController::class, 'store'])->name('enviarHotel');
+
+
+
+//vuelos
+Route::get('/vuelo/create', [vuelosController::class, 'create'])->name('rutaVueloRegistro');
+Route::delete('/vuelo/{id}', [vuelosController::class, 'destroy'])->name('rutaEliminarVuelo');
+Route::get('/vuelo/{id}/edit', [vuelosController::class, 'edit'])->name('rutaEditarVuelo');
+Route::put('/vuelo/{id}/update', [vuelosController::class, 'update'])->name('rutaActualizarVuelo');
+Route::post('/vuelo', [vuelosController::class, 'store'])->name('enviarVuelo');
+
+
+
 
 //PDF y EXCEL
 

@@ -37,13 +37,13 @@ return new class extends Migration
             $table->timestamp('reserva_fecha')->useCurrent();
     
             // Datos de los pasajeros
-            $table->string('pasajeros_nombre');
-            $table->string('pasajeros_tipo'); // Ejemplo: Adulto, Niño, Mayor
+            $table->string('pasajeros_nombre')->nullable();
+            $table->string('pasajeros_tipo')->nullable(); // Ejemplo: Adulto, Niño, Mayor
             $table->string('pasajeros_documento')->nullable(); // Ejemplo: pasaporte, documento de identidad
     
             // Datos de contacto para la reserva
-            $table->string('email_contacto');
-            $table->string('telefono_contacto');
+            $table->string('email_contacto')->nullable();
+            $table->string('telefono_contacto')->nullable();
     
             // Estado de la reserva
             $table->enum('estado_reserva', ['pendiente', 'confirmada', 'cancelada'])->default('pendiente');

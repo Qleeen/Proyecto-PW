@@ -153,7 +153,7 @@ class clienteController extends Controller
             if ($user->role === 'admin') {
                 return redirect()->route('rutaclientes')->with('success', 'Bienvenido Administrador.');
             } else {
-                return redirect()->route('rutaclientes')->with('success', 'Inicio de sesión exitoso.');
+                return redirect()->route('rutainicio')->with('success', 'Inicio de sesión exitoso.');
             }
         }
         

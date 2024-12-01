@@ -19,7 +19,7 @@
           <a class="nav-link" href="{{ route('rutahotelConsulta') }}">Hoteles</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('rutaclientes') }}">Vuelos</a>
+          <a class="nav-link" href="{{ route('rutavuelosConsulta') }}">Vuelos</a>
         </li>
       </ul>
     </div>
