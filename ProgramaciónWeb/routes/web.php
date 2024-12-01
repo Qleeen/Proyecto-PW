@@ -40,7 +40,8 @@ Route::post('/enviarReservacion', [controladorVistas::class, 'procesarReservacio
 Route::post('/enviarHotel', [controladorVistas::class, 'procesarHotel'])->name('rutaEnviarHotel');
 Route::post('/enviarPago', [controladorVistas::class, 'procesarPago'])->name('rutaEnviarPago');
 
-
+//cerrar sesion
+Route::post('/logout', [clienteController::class, 'logout'])->name('logout');
 
 //controlador del cliente
 Route::get('/cliente/create', [clienteController::class, 'create'])->name('rutaregistro');
@@ -54,6 +55,8 @@ Route::put('/cliente/{id}/update', [clienteController::class, 'update'])->name('
 //eliminar cliente
 Route::delete('/cliente/{id}', [clienteController::class, 'destroy'])->name('rutaEliminarCliente');
 
+Route::post('/enviarLogin', [clienteController::class, 'enviarLogin'])->name('enviarLogin');
+
 
 //hoteles
 
@@ -62,4 +65,5 @@ Route::delete('/hotel/{id}', [hotelController::class, 'destroy'])->name('rutaEli
 Route::get('/hotel/{id}/edit', [hotelController::class, 'edit'])->name('rutaEditarHotel');
 Route::put('/hotel/{id}/update', [hotelController::class, 'update'])->name('rutaActualizarHotel');
 Route::post('/hotel', [hotelController::class, 'store'])->name('enviarHotel');
+
 

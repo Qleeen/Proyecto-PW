@@ -17,7 +17,7 @@ class ClienteTableSeeder extends Seeder
 
             [
                 'nombre'=>'Baruch',
-                'correo'=>'baruchsaur125@gmail.com',
+                'correo'=>'baruchsaur1255@gmail.com',
                 'password'=>'123456',
                 'telefono'=>'4424646329',
                 'password_confirmation'=>'123456',

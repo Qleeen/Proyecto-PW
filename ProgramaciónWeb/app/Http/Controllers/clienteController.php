@@ -13,6 +13,11 @@ use Carbon\Carbon;
 //validador
 use App\Http\Requests\validadorRegistro;
 
+//CONTRASEÑA
+use Illuminate\Support\Facades\Hash;
+
+use Illuminate\Support\Facades\Auth;
+
 class clienteController extends Controller
 {
     /**
@@ -41,8 +46,8 @@ class clienteController extends Controller
             'nombre' => $request->input('txtnombre'),
             'correo' => $request->input('txtemail'),
             'telefono' => $request->input('txttelefono'),
-            'password' => $request->input('txtpassword'),
-            'password_confirmation' => $request->input('txtpassword_confirmation'),
+            'password' => hash::make($request->input('txtpassword')),
+            'password_confirmation' => hash::make($request->input('txtpassword_confirmation')),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
@@ -51,7 +56,7 @@ class clienteController extends Controller
         $usuario = $request->input('txtnombre');
 
         session()->flash('exito', 'Se guardo el usuario' .$usuario);
-        return to_route('rutaregistro');
+        return to_route('rutainicio');
     }
 
     /**
@@ -82,8 +87,8 @@ class clienteController extends Controller
             'nombre' => $request->input('txtnombre'),
             'correo' => $request->input('txtemail'),
             'telefono' => $request->input('txttelefono'),
-            'password' => $request->input('txtpassword'),
-            'password_confirmation' => $request->input('txtpassword_confirmation'),
+            'password' => hash::make($request->input('txtpassword')),
+            'password_confirmation' => hash::make($request->input('txtpassword_confirmation')),
             'updated_at' => Carbon::now()
  
         ]);
@@ -103,4 +108,46 @@ class clienteController extends Controller
         session()->flash('exito','Se elimino el usuario' .$id);
         return to_route('rutaclientes');
     }
+
+
+
+
+    public function enviarLogin(Request $request)
+    {
+        $request->validate([
+            'txtemail' => 'required|email',
+            'txtpassword' => 'required',
+        ]);
+    
+        $user = DB::table('clientes')->where('correo', $request->txtemail)->first();
+    
+        if ($user && Hash::check($request->txtpassword, $user->password)) {
+            // Guardar usuario en sesión
+            session(['user' => $user]);
+    
+            // Verificar el rol y redirigir según corresponda
+            if ($user->role === 'admin') {
+                return redirect()->route('rutaclientes')->with('success', 'Bienvenido Administrador.');
+            } else {
+                return redirect()->route('rutaclientes')->with('success', 'Inicio de sesión exitoso.');
+            }
+        }
+    
+        return back()->withErrors(['txtemail' => 'Correo o contraseña incorrectos.'])->withInput();
+    }
+
+
+
+
+    public function logout(Request $request)
+    {
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('rutalogin')->with('success', 'Sesión cerrada exitosamente.');
+    }
+
 }
+
+
+
+

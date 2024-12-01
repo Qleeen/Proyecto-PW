@@ -26,7 +26,7 @@
   </div>
 </nav>
 
-<a href="{{ route('rutaHotelRegistro') }}" class="btn btn-primary">{{ __('Agregar Hotel') }}</a>
+<a href="{{ route('rutaHotelRegistro') }}" class="btn btn-success">{{ __('Agregar Hotel') }}</a>
 
 <div class="container mt-5 col-md-8">
   @if (session('exito'))
