@@ -24,6 +24,11 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ClientesExport;
 
+//Email verificacion
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VerifyEmail;
+use Illuminate\Support\Str;
+
 
 
 
@@ -51,20 +56,24 @@ class clienteController extends Controller
      */
     public function store(validadorRegistro $request)
     {
-        DB::table('clientes')->insert([
+        // Registrar al usuario
+        $clienteId = DB::table('clientes')->insertGetId([
             'nombre' => $request->input('txtnombre'),
             'correo' => $request->input('txtemail'),
             'telefono' => $request->input('txttelefono'),
-            'password' => hash::make($request->input('txtpassword')),
-            'password_confirmation' => hash::make($request->input('txtpassword_confirmation')),
+            'password' => Hash::make($request->input('txtpassword')),
+            'password_confirmation' => Hash::make($request->input('txtpassword_confirmation')),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-
         ]);
-
-        $usuario = $request->input('txtnombre');
-
-        session()->flash('exito', 'Se guardo el usuario' .$usuario);
+    
+        // Generar el enlace de verificación
+        $verificationUrl = route('verify.email', ['id' => $clienteId, 'hash' => sha1($request->input('txtemail'))]);
+    
+        // Enviar el correo de verificación
+        Mail::to($request->input('txtemail'))->send(new VerifyEmail($verificationUrl));
+    
+        session()->flash('exito', 'Se guardó el usuario y se envió el correo de verificación.');
         return to_route('rutainicio');
     }
 
@@ -128,13 +137,18 @@ class clienteController extends Controller
             'txtemail' => 'required|email',
             'txtpassword' => 'required',
         ]);
-    
+        
         $user = DB::table('clientes')->where('correo', $request->txtemail)->first();
-    
+        
         if ($user && Hash::check($request->txtpassword, $user->password)) {
+            // Verificar si el correo está verificado
+            if ($user->email_verified_at === null) {
+                return back()->withErrors(['txtemail' => 'Por favor verifica tu correo electrónico.'])->withInput();
+            }
+            
             // Guardar usuario en sesión
             session(['user' => $user]);
-    
+        
             // Verificar el rol y redirigir según corresponda
             if ($user->role === 'admin') {
                 return redirect()->route('rutaclientes')->with('success', 'Bienvenido Administrador.');
@@ -142,7 +156,7 @@ class clienteController extends Controller
                 return redirect()->route('rutaclientes')->with('success', 'Inicio de sesión exitoso.');
             }
         }
-    
+        
         return back()->withErrors(['txtemail' => 'Correo o contraseña incorrectos.'])->withInput();
     }
 
@@ -171,6 +185,18 @@ class clienteController extends Controller
     {
     return Excel::download(new ClientesExport, 'clientes.xlsx');
     }
+
+//verifyEmail
+public function verifyEmail($id, $hash)
+{
+    $cliente = DB::table('clientes')->where('id', $id)->first();
+    if (!$cliente || sha1($cliente->correo) !== $hash) {
+        return redirect()->route('rutaregistro')->withErrors(['error' => 'El enlace de verificación no es válido.']);
+    }
+    // Marcar el correo como verificado
+    DB::table('clientes')->where('id', $id)->update(['email_verified_at' => Carbon::now()]);
+    return redirect()->route('rutainicio')->with('success', 'Correo verificado exitosamente. Ahora puedes iniciar sesión.');
+}
 
 }
 

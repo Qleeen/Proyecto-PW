@@ -82,3 +82,5 @@ Route::get('/hoteles/exportar-excel', [ReporteHotelController::class, 'exportarE
 Route::get('/hoteles/exportar-pdf', [ReporteHotelController::class, 'exportarPdf'])->name('exportarHotelesPdf');
 
 
+//verify
+Route::get('/verify-email/{id}/{hash}', [clienteController::class, 'verifyEmail'])->name('verify.email');
