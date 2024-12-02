@@ -35,6 +35,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('rutaregistro')}}">Registrarse</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('rutareservaciones')}}">Vuelos</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('rutahotel')}}">Hoteles</a>
+                </li>
+
+
             </ul>
             
             <ul class="navbar-nav d-flex">

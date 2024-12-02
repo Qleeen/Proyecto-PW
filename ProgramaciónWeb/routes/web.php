@@ -86,6 +86,9 @@ Route::get('/vuelo/{id}/edit', [vuelosController::class, 'edit'])->name('rutaEdi
 Route::put('/vuelo/{id}/update', [vuelosController::class, 'update'])->name('rutaActualizarVuelo');
 Route::post('/vuelo', [vuelosController::class, 'store'])->name('enviarVuelo');
 
+//buscarvuelos
+Route::get('/buscar-vuelos', [VueloController::class, 'buscarVuelos'])->name('buscarVuelos');
+Route::get('/reservar-vuelo/{id}', [VueloController::class, 'reservarVuelo'])->name('reservarVuelo');
 
 
 

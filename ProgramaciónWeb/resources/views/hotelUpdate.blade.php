@@ -38,7 +38,7 @@
                     <input type="number"  name="txtprecio" value="{{ $hotel->precio }}" class="form-control form-control-lg"  />
                 </div>
                 <div class="form-outline mb-4">
-                    <label for="personas" class="form-label" >Personas</label>
+                    <label for="personas" class="form-label" >Habitaciones</label>
                     <input type="number"  name="txtpersonas" value="{{ $hotel->personas }}" class="form-control form-control-lg"  />
                 </div>
                 <div class="card-footer text-muted">
