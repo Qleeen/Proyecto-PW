@@ -45,8 +45,12 @@
                             <div class="card mb-4 shadow-sm">
                                 <div class="card-body">
                                     <h5 class="card-title text-primary">Vuelo Seleccionado</h5>
-                                    <p class="card-text"><strong>No. de Vuelo:</strong> {{ $vuelo->id }}</p>
+                                    <p class="card-text"><strong>Origen:</strong> {{ $vuelo->origen }}</p>
+                                    <p class="card-text"><strong>Destino:</strong> {{ $vuelo->destino }}</p>
+                                    <p class="card-text"><strong>Salida:</strong> {{ $vuelo->fecha_salida }}</p>
+                                    <p class="card-text"><strong>Regreso:</strong> {{ $vuelo->fecha_regreso }}</p>
                                     <p class="card-text"><strong>Aerolínea:</strong> {{ $vuelo->aerolinea_nombre }}</p>
+                                    <p class="card-text"><strong>Clase:</strong> {{ $vuelo->clase}}</p>
                                     <p class="card-text"><strong>Asientos Disponibles:</strong> {{ $vuelo->num_pasajeros }}</p>
                                 </div>
                             </div>
