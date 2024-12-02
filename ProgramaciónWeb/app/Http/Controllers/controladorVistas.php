@@ -134,7 +134,7 @@ class controladorVistas extends Controller
         $usuario= $peticionValidada->input('txttarjeta');
 
         session()->flash('exito','Cargo realizado a' .$usuario,);
-        return to_route('rutapago');
+        return to_route('rutacuenta');
 
     }
 

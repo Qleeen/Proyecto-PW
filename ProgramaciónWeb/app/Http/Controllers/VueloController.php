@@ -42,5 +42,19 @@ class VueloController extends Controller
         // Retornar la vista con los resultados
         return view('vuelos.reservacion', compact('vuelos'));
     }
+
+
+
+    public function mostrarVuelo($id)
+    {
+        $vuelo = Vuelo::find($id);
+    
+        if (!$vuelo) {
+            return redirect()->route('rutavuelos')->with('error', 'Vuelo no encontrado.');
+        }
+    
+        return view('vuelos', compact('vuelo'));
+    }
+
     
 }

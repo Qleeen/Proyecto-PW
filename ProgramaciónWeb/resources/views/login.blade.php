@@ -24,16 +24,7 @@
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Inicia sesión en tu cuenta</h5>
 
-                  <!-- Mostrar errores globales -->
-                  @if ($errors->any())
-                    <div class="alert alert-danger">
-                      <ul>
-                        @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                        @endforeach
-                      </ul>
-                    </div>
-                  @endif
+
 
                   <!-- Correo -->
                   <div class="form-outline mb-4">

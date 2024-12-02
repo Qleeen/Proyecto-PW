@@ -5,6 +5,15 @@
 @section('contenido')
 <section class="vh-100" style="background-color: #ffffed;">
     <div class="container-fluid">
+    @session('exito')
+        <script>
+        Swal.fire({
+        title: "Respuesta de servidor",
+        text: "{{ $value }}",
+        icon: "success"
+      });
+      </script>
+      @endsession
         <div class="row">
             <!-- Sidebar -->
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
@@ -83,48 +92,7 @@
                     </div>
                 </div>
 
-                <!-- History Section -->
-                <div class="mt-5">
-                    <h3 class="text-secondary">Historial</h3>
-                    <div class="row">
-                        <div class="carousel slide mt-4">
-                            <div class="carousel-inner">
-                                <!-- Carousel Item -->
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="card mb-4 shadow-sm">
-                                                <img src="{{ asset('imagenes/cancun.jpg') }}" class="card-img-top" alt="Cancún" style="width: 100%; height: 200px; object-fit: cover;">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Cancún, México</h5>
-                                                    <p class="card-text"><strong>Fecha:</strong> Julio 2020</p>
-                                                    <p class="card-text"><strong>Vuelo:</strong> A-102 AeroMéxico</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="card mb-4 shadow-sm">
-                                                <img src="{{ asset('imagenes/japon.jpg') }}" class="card-img-top" alt="Tokio" style="width: 100%; height: 200px; object-fit: cover;">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Tokio, Japón</h5>
-                                                    <p class="card-text"><strong>Fecha:</strong> Marzo 2023</p>
-                                                    <p class="card-text"><strong>Vuelo:</strong> M-302 - American Airlines</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="card mb-4 shadow-sm">
-                                                <img src="{{ asset('imagenes/france.jpg') }}" class="card-img-top" alt="París" style="width: 100%; height: 200px; object-fit: cover;">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">París, Francia</h5>
-                                                    <p class="card-text"><strong>Fecha:</strong> Diciembre 2022</p>
-                                                    <p class="card-text"><strong>Vuelo:</strong> P-789 - Air France</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Fin del Carousel Item -->
+               
                             </div>
                         </div>
                     </div>

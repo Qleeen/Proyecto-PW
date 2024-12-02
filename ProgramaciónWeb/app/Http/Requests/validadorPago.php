@@ -25,6 +25,7 @@ class validadorPago extends FormRequest
             'txtname' => 'required|min:15',
             'txttarjeta' => 'required|numeric|digits:16',
             'txtmes' => 'required|numeric|digits:2',
+            'txtanio' => 'required|numeric|digits:4|min:' . date('Y'),
             'txtcvv' => 'required|numeric|digits:3',
         ];
     }

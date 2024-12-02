@@ -60,20 +60,8 @@
     </div>
 
     <div class="row">
-        <!-- Escalas -->
-        <div class="col-md-6 mb-3">
-            <label for="escalas" class="form-label">Número de Escalas</label>
-            <input type="number" name="escalas" value="{{ old('escalas') }}" class="form-control" min="0">
-        </div>
-        <!-- Horario -->
-        <div class="col-md-3 mb-3">
-            <label for="hora_salida" class="form-label">Hora de Salida</label>
-            <input type="time" name="hora_salida" value="{{ old('hora_salida') }}" class="form-control">
-        </div>
-        <div class="col-md-3 mb-3">
-            <label for="hora_llegada" class="form-label">Hora de Llegada</label>
-            <input type="time" name="hora_llegada" value="{{ old('hora_llegada') }}" class="form-control">
-        </div>
+
+
     </div>
 
     <div class="text-center">
